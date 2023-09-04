@@ -17,6 +17,6 @@ You need: A Web Browser, Text Editor (VS Code), NodeJS and Vite
 2. Open the folder where you started you React Project in VS Code.
 3. Open the integrated terminal in VS Code.
 4. Type `npm start`. This will start our React Application.
-  > Every time you make a change in your code and save, you will see the latest version in the browser.
+    > Every time you make a change in your code and save, you will see the latest version in the browser.
 
 And let's start :)
