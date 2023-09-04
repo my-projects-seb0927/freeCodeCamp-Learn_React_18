@@ -20,3 +20,5 @@ You need: A Web Browser, Text Editor (VS Code), NodeJS and Vite
     > Every time you make a change in your code and save, you will see the latest version in the browser.
 
 And let's start :)
+
+> *Note from the author:* The folder *node_modules* weights over 300 MB. It ain't going to be in the Github repository. If you make any `git clone` command, in order to execute the React code, you need to first go to *my-app* and execute `npm install` in order to download the node_modules. Happy coding!
