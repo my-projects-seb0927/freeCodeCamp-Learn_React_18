@@ -17,3 +17,46 @@
 - Remove the *src* folder.
 - Create the *src* folder.
   - Create *index.js* file inside *src*.
+
+## First component
+> **Time stamp:** 43:12
+
+1. Write the next block of code inside *index.js*:
+    ```javascript
+    function Greeting() {
+      return <h2>My First Component</h2>;
+    }
+    ```
+
+    You can also use arrow functions!
+    ```javascript
+    // arrow function also works
+
+    const Greeting = () => {
+      return <h2>My First Component</h2>;
+    };
+    ```
+
+    - In order to create a component in react, you need to create a Javascript function, and inside of it you'll return an HTML element.
+  
+2. Every time you create a component, you'll have to export it!, Add this line after your `Greeting` function:
+    ```javascript
+    export default Greeting;
+    ```
+
+3. Do you remember the Root Component? It's the main component where we'll add al the rest of components. It's the sucker that will be inserted inside of the `div="root`. So go to *index.js* and insert the next piece of code:
+    ```javascript
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+
+    function Greeting() {
+      return <h2>My First Component</h2>;
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    root.render(<Greeting />); 
+    ```
+    - The first and last codes are something that will be repeated again and again, the important part is the `function` code, which is our component.
+    - The line `root.render(<Greeting />);` is for rendering our component. It's important to close it! wether it's `<></>` or `< />`.
+    - Think about components like functions.
