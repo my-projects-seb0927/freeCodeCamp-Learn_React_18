@@ -60,3 +60,28 @@
     - The first and last codes are something that will be repeated again and again, the important part is the `function` code, which is our component.
     - The line `root.render(<Greeting />);` is for rendering our component. It's important to close it! wether it's `<></>` or `< />`.
     - Think about components like functions.
+
+## Extensions and settings.json
+> **Time stamp:** 53:27
+
+The tutor starts talking about his extensions and settings. I dunno, you can take it if you want them:
+
+- Auto Rename Tag
+- Highlight Matching Tag
+  - customize in settings.json
+- Prettier
+  - format on save
+  - format on paste
+  - Default Formatter (Prettier - Code formatter)
+
+And for *settings.json*:
+```
+"editor.formatOnPaste": true,
+"editor.formatOnSave": true,
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+```
+
+- And he also uses Emmet, he shows how to use in VS code.
+- ES7 Snippets, for creating snippets from React fast.
