@@ -97,34 +97,34 @@ We need to remember that our components need to:
 So what's JSX? Let's find out:
 1. Comment the entire of the `Greeting` function (*Psst, you can use Ctrl + /*).
 2. Now create a new `Greeting` function like this:
-  ```javascript
-  function Greeting() {
-    return React.createElement('h2', {}, 'hello world');
-  }
-  ```
-  - Congratulations! You've created an h2 tag with JSX. They're called "React Elements" for constructing the DOM and mantaining it updated.
+    ```javascript
+    function Greeting() {
+      return React.createElement('h2', {}, 'hello world');
+    }
+    ```
+     - Congratulations! You've created an h2 tag with JSX. They're called "React Elements" for constructing the DOM and mantaining it updated.
 3. What about if I want to have an `h2` element inside a `div` element? You can do it like this:
-  ```javascript
-  function Greeting() {
-    return React.createElement(
-      'div', 
-      {},
-      React).createElement('h2', {}, 'hello world');
-  }
-  ```
-  - Well, this starts to get strange. So in the long run, I recommend you to do it in the classic way (Using tags as in the last exercise).
+    ```javascript
+    function Greeting() {
+      return React.createElement(
+        'div', 
+        {},
+        React).createElement('h2', {}, 'hello world');
+    }
+    ```
+    - Well, this starts to get strange. So in the long run, I recommend you to do it in the classic way (Using tags as in the last exercise).
 
 ### JSX Rules
 - Always return a single element or one parent element. This means you cannot do something like this:
-  ```jsx
-  function Greeting() {
-    return (
-      <div>
-        {/*Insert what you need here*/}
-      </div>
-      <h2> {/*This is entirely wrong, since you're returning a div and a h2 tag*/}
-    )
-  }
+    ```jsx
+    function Greeting() {
+      return (
+        <div>
+          {/*Insert what you need here*/}
+        </div>
+        <h2> {/*This is entirely wrong, since you're returning a div and a h2 tag*/}
+      )
+    }
   ```
   But you can solve it like this:
   ```jsx
@@ -144,4 +144,39 @@ So what's JSX? Let's find out:
 - JSX has a naming convention for properties which is the **camelCase** convention.
 - For CSS, you don't have the `class` property, instead you need to use `className`
 - Any element that don't have a closing tag, you need to put it manually, for example: `<img />`.
-   
+
+### Nest Components
+> **Time stamp:** 1:20:20
+What if I want to insert a component inside a component. Is that possible? This is how you can do it:
+
+1. Let's modify the `Greeting` function again:
+    ```jsx
+    function Greeting() {
+      return(
+        <div>
+          <h2>John Doe</h2>
+          <p>This is my message</p>
+        </div>
+      )
+    }
+    ```
+2. Now we are going to create other two components with the code that `Greeting` has inside of it:
+    ```jsx
+    const Person = () => <h2>John doe</h2>
+    const Message = () => {
+      return <p>This is my message</p>;
+    };
+    ```
+3. Now you can modify `Greeting` again like this!
+    ```jsx
+    function Greeting() {
+      return(
+        <div>
+          <Person />
+          <Message />
+        </div>
+      )
+    }
+    ```
+    - And just like this, you can nest components inside of other components as much as you want. And this how your future applications will look that.
+> By this moment you can download a React extension for looking component inside the Inspector code. Its name is **React Develper Tools**.
