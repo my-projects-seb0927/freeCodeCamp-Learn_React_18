@@ -180,3 +180,65 @@ What if I want to insert a component inside a component. Is that possible? This 
     ```
     - And just like this, you can nest components inside of other components as much as you want. And this how your future applications will look that.
 > By this moment you can download a React extension for looking component inside the Inspector code. Its name is **React Develper Tools**.
+
+## Booklist
+> **Time stamp:** 1:26:35
+Now we'll be creating a Booklist in order to practice with what we've learned. I recommend you to just look the code since there's nothing to explain here.
+
+## CSS
+> **Time stamp:** 1:37:17
+For creating a CSS File and importing to your React code, you need to follow the next steps:
+1. Create a file in *src* called *index.css*.
+2. Insert your CSS code. In the case of our Booklist, we'll add the next code:
+    ```css
+    .booklist {
+      width: 90vw;
+      max-width: 1170px;
+      margin: 5rem auto;
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      .booklist {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .book {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .book img {
+      width: 100%;
+      object-fit: cover;
+    }
+    .book h2 {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    ```
+3. Go to where you need your css file imported. In this case we'll go to *index.js* and import it in this way after the `ReactDOMT` import:
+    ```jsx
+    import './index.css' 
+    ```
+    - When it's about our own assets like our CSS file, we need to provide our path. It's always going to start with `./` and after that the route to our file.
+4. We'll modify our BookList inserting their respective `className` properties:
+   ```jsx
+   function BookList() {
+      return (
+        <section className='booklist'>
+          {/*...*/}
+        </section>
+      );
+    }
+
+    const Book = () => {
+      return (
+        <article className='book'>
+          {/*...*/}
+        </article>
+      );
+    };
+   ```
