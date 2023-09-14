@@ -255,3 +255,29 @@ For creating a CSS File and importing to your React code, you need to follow the
       );
     };
    ```
+
+## Local  Images
+> **Time stamp:** 1:47:35
+
+- For images, we have many options:
+    - External images hosted on a different server.
+    - Local images in the public folder which is less performant.
+    - Local images in the src folder, which is better because they get optimized under the hood.
+
+In order to do it, you need to:
+1. Save the image.
+2. Create an *images* folder in public.
+3. Save the image there.
+4. Rename it if you need it.
+5. Replace the url in the src like: `./images/imageName.extension`.
+
+So inside your *index.js* you need to modify it:
+```jsx
+const Image = () => (
+  <img src='./images/book-1.jpg' alt='Elon Musk' />
+);
+```
+- 
+
+
+
