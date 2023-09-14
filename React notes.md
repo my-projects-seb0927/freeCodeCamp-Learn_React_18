@@ -191,6 +191,19 @@ For creating a CSS File and importing to your React code, you need to follow the
 1. Create a file in *src* called *index.css*.
 2. Insert your CSS code. In the case of our Booklist, we'll add the next code:
     ```css
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: #f1f5f8;
+      color: #222;
+    }
+
     .booklist {
       width: 90vw;
       max-width: 1170px;
