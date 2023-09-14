@@ -277,7 +277,31 @@ const Image = () => (
   <img src='./images/book-1.jpg' alt='Elon Musk' />
 );
 ```
-- 
+## JSX - CSS
+If you want to add CSS inside a JSX file to a tag element, you need to take into account this notes:
+- In JSX, putting `{}` means writing again in javascript.
+- CSS writed inside JSX is taking as an object with key/value pairs, meaning the values are inside `''`.
+
+Inside of *index.js*, we'll modify our author component in this way in order to add it some CSS style:
+```jsx
+const Author = () => {
+  return <h4 style={{color:'#617d98', fontSize:'0.75rem', marginTop:'0.5rem'}}>Walter Isaacson</h4>
+}
+```
+- Take in mind that the CSS aplied directly like this will be over other CSS files.
+
+By the way, you can apply CSS in other way:
+```jsx
+const Author = () => {
+  const inlineHeadingStyles = {
+    color: '#617d98',
+    fontSize: '0.75rem',
+    marginTop: '0.5rem',
+  };
+  return <h4 style={inlineHeadingStyles}>Jordan Moore </h4>;
+};
+```
+
 
 
 
