@@ -302,6 +302,30 @@ const Author = () => {
 };
 ```
 
+## JSX - Javascript
+- `{}` in JSX means that I'm going to use javascript inside of it
+- It has to return a value. It has to be an expression.
+
+You can do it like this, modifying the Book component:
+```jsx
+const author = 'Walter Isaacson'
+const Book = () => {
+  const title = 'Elon Musk';
+  return (
+    <article className='book'>
+      <img
+        src='./images/book-1.jpg'
+        alt='Elon Musk'
+      />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+```
+- In this scenario, we saved the title inisde `title` and we returned between the `<h2>` tags.
+
+
 
 
 
