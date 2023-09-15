@@ -404,6 +404,46 @@ We just made some changes to the code. Look for them!
     };
     ```
     
+## Children Prop
+> **Time stamp:** 2:27:44
+- It provides access to everything we render betwee component tags.
+    - It's more useful in Context API.
+
+What happens if I want to render a paragraph and a button in one of the components? Follow with me:
+1. Open the `<Book>` tag inside of `BookList` like this: `<Book ...></Book>`
+2. And now between the tags, add the information you need to show inside that component, for example:
+    ```jsx
+    <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+    >
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+        repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+      </p>
+      <button>click me</button>
+    </Book>
+    ```
+
+3. We are going to modify our `Book` component. We need to add **`children`** as a variable when we are taking the elements from `props`:
+   ```jsx
+   const Book = (props) => {
+    const { img, title, author, children } = props;
+    console.log(props);
+    return (
+      <article className='book'>
+        <img src={img} alt={title} />
+        <h2>{title}</h2>
+        <h4>{author} </h4>
+        {children} {/*Here we render children!*/}
+      </article>
+    );
+  };
+   ```
+
+And that's it!
+
 
 
 
