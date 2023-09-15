@@ -325,6 +325,52 @@ const Book = () => {
 ```
 - In this scenario, we saved the title inisde `title` and we returned between the `<h2>` tags.
 
+> **P.D:** The const variables were moved to the upper section to the code.
+
+## Props
+In Javascript, when we create a function, we can define some parameters to it, and we have to pass arguments when we call that respective function. In React we can also pass data to our component. This is the case if I need other book to render.
+
+1. Let's add `props` as a parameter to the `Book` function:
+   ```jsx
+    const Book = (props) => {
+      console.log(props); //This returns 'Object', an empty object.
+      return (
+        <article className='book'>
+          <img src={props.img} alt={props.title} />
+          <h2>{props.title}</h2>
+          <h4>{props.author} </h4>
+        </article>
+      );
+    };
+    ```
+2. Now I need to pass some arguments to `Book`, because why did we add `props` if we weren't going to use it? Go to `BookList` and modify the `<Book />` tag:
+    ```jsx
+    <Book job="developer" />
+    <Book title="random title" number={2} />
+    ```
+    - Now in our console we'll be watching a dictionary, like this:
+        ```javascript
+        {title: 'random title', number: 22}
+        ```
+3. Let's now use it for something useful:
+    ```jsx
+    <Book author={author} title={title} img={img} />
+    <Book author={author} title={title} img={img} />
+    //...
+    const Book = (props) => {
+      console.log(props);
+      return (
+        <article className='book'>
+          <img src={props.img} alt={props.title} />
+          <h2>{props.title}</h2>
+          <h4>{props.author} </h4>
+        </article>
+      );
+    };
+    ```
+    - And now you are accessing the image, author and title from `props`!
+    
+
 
 
 
