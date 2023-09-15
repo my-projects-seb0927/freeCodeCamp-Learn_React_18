@@ -427,22 +427,25 @@ What happens if I want to render a paragraph and a button in one of the componen
     ```
 
 3. We are going to modify our `Book` component. We need to add **`children`** as a variable when we are taking the elements from `props`:
-   ```jsx
-   const Book = (props) => {
-    const { img, title, author, children } = props;
-    console.log(props);
-    return (
-      <article className='book'>
-        <img src={img} alt={title} />
-        <h2>{title}</h2>
-        <h4>{author} </h4>
-        {children} {/*Here we render children!*/}
-      </article>
-    );
-  };
-   ```
+    ```jsx
+    const Book = (props) => {
+      const { img, title, author, children } = props;
+      console.log(props);
+      return (
+        <article className='book'>
+          <img src={img} alt={title} />
+          <h2>{title}</h2>
+          <h4>{author} </h4>
+          {children} {/*Here we render children!*/}
+        </article>
+      );
+    };
+    ```
 
 And that's it!
+
+
+
 
 
 
