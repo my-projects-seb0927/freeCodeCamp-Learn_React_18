@@ -303,6 +303,7 @@ const Author = () => {
 ```
 
 ## JSX - Javascript
+> **Time stamp:** 2:02:17
 - `{}` in JSX means that I'm going to use javascript inside of it
 - It has to return a value. It has to be an expression.
 
@@ -328,6 +329,7 @@ const Book = () => {
 > **P.D:** The const variables were moved to the upper section to the code.
 
 ## Props
+> **Time stamp:** 2:08:44
 In Javascript, when we create a function, we can define some parameters to it, and we have to pass arguments when we call that respective function. In React we can also pass data to our component. This is the case if I need other book to render.
 
 1. Let's add `props` as a parameter to the `Book` function:
@@ -369,6 +371,38 @@ In Javascript, when we create a function, we can define some parameters to it, a
     };
     ```
     - And now you are accessing the image, author and title from `props`!
+
+## Props - Somewhat Dynamic Setup
+> **Time stamp:** 2:18:33
+We just made some changes to the code. Look for them!
+
+## Access Props - Multiple Approaches
+> **Time stamp:** 2:23:00
+1. You can take the properties from an object and save them in a set of variables:
+    ```javascript
+    const someObject = {
+      name: 'john',
+      job: 'developer',
+      location: 'florida',
+    };
+
+    console.log(someObject.name);
+    const { name, job } = someObject;
+    console.log(job);
+    ```
+    - So in our code would look something like this:
+    ```jsx
+    const Book = (props) => {
+      const { img, title, author } = props;
+      return (
+        <article className='book'>
+          <img src={img} alt={title} />
+          <h2>{title}</h2>
+          <h4>{author} </h4>
+        </article>
+      );
+    };
+    ```
     
 
 
