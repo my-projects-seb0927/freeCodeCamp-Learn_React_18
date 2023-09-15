@@ -13,27 +13,19 @@ const BookList = () => {
   );
 }
 
+const author = 'Walter Isaacson'
 const Book = () => {
+  const title = 'Elon Musk';
   return (
     <article className='book'>
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src='./images/book-1.jpg'
+        alt='Elon Musk'
+      />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
     </article>
   );
-}
-
-const Image = () => (
-  <img src='./images/book-1.jpg' alt='Elon Musk' />
-);
-const Title = () => <h2>Elon Musk</h2>
-const Author = () => {
-  const inlineHeadingStyles = {
-    color: '#617d98',
-    fontSize: '0.75rem',
-    marginTop: '0.5rem',
-  };
-  return <h4 style={inlineHeadingStyles}>Jordan Moore </h4>;
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
