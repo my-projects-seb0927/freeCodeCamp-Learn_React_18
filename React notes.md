@@ -482,6 +482,47 @@ function BookList() {
 
 And now it will return a React element that is wrapped in h1 tags, and not only that, but it will return every element that is inside `names`.
 
+## Proper List
+> **Time stamp:** 2:43:48
+
+So if we want to do what we did in the last chapter but for every book, we need to do it again in this way:
+```jsx
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        console.log(book);
+        const { img, title, author, id } = book;
+        return <Book img={img} title={title} author={author} key={id}/>;
+      })}
+    </section>
+  );
+}
+```
+- Basically here, we have taken the HTML structure from `Book` and now we applied inside `BookList`
+- So doing this, we are iterating through `book` (which contains books' data), then we are pulling out the properties from book and then we create a `Book` component with the properties we just pulled out.
+
+Finally, React is goint to give us a warning saying that *"Each child should have a unique "key" prop"*, so in order to apply that requirement, we just need to add the `id` properties to every object in `books`. **The id must be unique**:
+```jsx
+const books = [
+  {
+    author: 'Jordan Moore',
+    title: 'Interesting Facts For Curious Minds',
+    img: './images/book-1.jpg',
+    id:1,
+  },
+  {
+    author: 'James Clear',
+    title: 'Atomic Habits',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+    id:2,
+  },
+];
+```
+
+
+
+
 
 
 
