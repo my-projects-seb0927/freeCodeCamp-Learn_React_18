@@ -444,6 +444,46 @@ What happens if I want to render a paragraph and a button in one of the componen
 
 And that's it!
 
+## Simple List
+> **Time stamp:** 2:35:12
+
+In React we can't render objects directly in jsx, so for example, if we try this:
+```jsx
+const books = [
+  {
+    author: 'Jordan Moore',
+    title: 'Interesting Facts For Curious Minds',
+    img: './images/book-1.jpg',
+  },
+  {
+    author: 'James Clear',
+    title: 'Atomic Habits',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+  },
+];
+
+const BookList = () => {
+  return <section className='booklist'>{books}</section>
+}
+```
+
+So, for doing that we need to start knowing how to work with simple lists. **map** is a React function that let us create a new array from calling a function for every  array element:
+```jsx
+const names = ['john', 'peter', 'susan'];
+const newNames = names.map((name) => {
+  console.log(name);
+  return <h1>{name}</h1>;
+});
+
+function BookList() {
+  return <section className='booklist'>{newNames}</section>;
+}
+```
+
+And now it will return a React element that is wrapped in h1 tags, and not only that, but it will return every element that is inside `names`.
+
+
+
 
 
 
