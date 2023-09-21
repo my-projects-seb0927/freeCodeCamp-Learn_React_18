@@ -649,6 +649,70 @@ So in order to implement a React event, you need to:
 
 4. If you click in the button or type something in the input, their respective events will be getting executed. And it's done!
 
+## Event Object and Form Submission
+> **Time stamp:** 3:12:25
+
+We can also substract the event information through an event. Let's take a look: If we modify `handleFormInput` in the next way:
+```jsx
+const handleFormInput = (e) => {
+  console.log(e);
+};
+```
+
+But we don't need entirely all the information of the event, we just need useful information, and we can substract like this:
+```jsx
+const handleFormInput = (e) => {
+  console.log(e);
+  // e.target - element
+  console.log(`Input Name : ${e.target.name}`);
+  console.log(`Input Value : ${e.target.value}`);
+  // console.log('handle form input');
+};
+```
+- **`e.target`:** It returns the HTML - JSX element (In this case: `<input>`)
+- **`e.target.name`:** It's returning the Input field name (Which, in this case is *example*)
+- **`e.target.value`:** It's returning the Input field value (What the user has written in the input field)
+
+### Form Submission
+In our app, for submitting a form, we have to modify our code in the next way:
+```jsx
+const EventExamples = () => {
+  const handleFormInput = (e) => {
+    //...
+  };
+  const handleButtonClick = () => {
+    alert('handle button click');
+  };
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+  };
+  return (
+    <section>
+      {/* add onSubmit Event Handler */}
+      <form onSubmit={handleFormSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type='text'
+          name='example'
+          onChange={handleFormInput}
+          style={{ margin: '1rem 0' }}
+        />
+        {/* add button with type='submit' */}
+        <button type='submit'>submit form</button>
+      </form>
+      <button onClick={handleButtonClick}>click me</button>
+    </section>
+  );
+};
+```
+- In this case. `handleFormSubmission` won't be activated when the form is submitted with the button because the default behavior of the forms is to collect those values and sent it to some URL. But because we need to handle those forms by ourselvs. we use `e.preventDefault()`
+- By the way, for submitting a form you can also do it like this from a button (You have to delete de `onSubmit` event from the `<form>` tag):
+    ```jsx
+    <button type='submit' onClick={handleFormSubmission}>
+      submit form
+    </button>
+    ```
 
 
 
