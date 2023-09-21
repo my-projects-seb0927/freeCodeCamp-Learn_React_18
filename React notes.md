@@ -867,11 +867,26 @@ When we run the server in our code, we are running a development sever, ¿But wh
 
 THIS IS THE END OF REACT - FUNDAMENTALS
 ---
-# React - Backroads Project
+# React - Backroads Project - Advanced
 For this part, we'll be working on a new project, so type inside the folder you are going to start: ```npx create-react-app@latest backroads-app```
 
 By the way, in *index.js* you have some tags called `<React.StrictMode>`, this is for returning me warnings in the developer server, and it will render the website twice. Take it in account!
 
+## Vite
+Vite is much faster than create react app and it provides a lot of features, having a great experience developing
+
+So for setting our project with vite, follow the next steps:
+1. Insert the next command where you will set up your project: ```npm create vite@latest my-react-app -- --template react```
+2. Open the project in VSCode.
+3. For running our developer server, we need to use `npm run dev`, remembeter to install with `npm i` the dependencies.
+   - The host here will be the 5173.
+4. Now our files are not *.js* but *.jsx*.
+
+**Differences:**
+- *.js* -> *.jsx*
+- *index.js* -> *main.jsx*
+- *assets* are in the *src* folder.
+- *build* -> *dist*
 
 
 
