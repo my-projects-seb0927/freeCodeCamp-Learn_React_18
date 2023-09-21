@@ -714,6 +714,24 @@ const EventExamples = () => {
     </button>
     ```
 
+## Mind Grenade
+> **Time stamp:** 3:21:51
+It's not neccessary to create those functions handelers that we created before! You can also pass them as anonymous functions like this:
+```jsx
+const EventExamples = () => {
+  return (
+    <section>
+      <button onClick={() => console.log('hello there')}>click me</button>
+    </section>
+  );
+};
+```
+- And if you need to get access to the event, you can pass `e` as a parameter in the anonymous function c:
+
+### Mind Grenade #2
+> **Time stamp:** 3:25:35
+- The event from the components are independent by default. If you display the title of a book with a event, you are going to display the name from the data of **that** item. Watch the video if you don't remember what I'm talking about
+
 
 
 
