@@ -815,7 +815,38 @@ In this tutorial we'll only focus in two ways for importing modules.
 And yes, You've learned how do exports and imports work in React - Javascript :D
 
 ## Local Images (src folder)
+You need to learn how to save local images in the src folder, since they have a better performance because they are optimized.
 
+1. In this tutorial, we saved the images inside the *src* folder that has a folder called *images*. It's quite probably that in future projects we start by the *assests* folder.
+2. For importing the images, we need to add at the begginning of *Book.js*:
+    ```jsx
+    import img1 from './images/book-1.jpg';
+    import img2 from './images/book-2.jpg';
+    import img3 from './images/book-3.jpg';
+    ```
+3. And then we can use imgs inside every book, like this:
+    ```jsx
+    export const books = [
+      {
+        author: 'Walter Isaacson',
+        title: 'Elon Musk',
+        img: img1,
+        id:1,
+      },
+      {
+        author: 'Mark R. Levin',
+        title: 'The Democrat Party Hates America',
+        img: img2,
+        id:2,
+      },
+      {
+        author: 'Keila Shaheen',
+        title: 'The Shadow Work Journal',
+        img: img3,
+        id:3,
+      },
+    ];
+    ```
 
 
 
