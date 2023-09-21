@@ -732,6 +732,41 @@ const EventExamples = () => {
 > **Time stamp:** 3:25:35
 - The event from the components are independent by default. If you display the title of a book with a event, you are going to display the name from the data of **that** item. Watch the video if you don't remember what I'm talking about
 
+## Component Feature
+> **Time stamp:** 3:28:55
+
+### Prop Drilling
+In React, the data flows through the components, in other words, it can only pass props down. So if you want props to a child component, you need to pass it through the parent component and so on. This is an example of this:
+```jsx
+function BookList() {
+  const someValue = 'shakeAndBake';
+  const displayValue = () => {
+    console.log(someValue);
+  };
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        return <Book {...book} key={book.id} displayValue={displayValue} />;
+      })}
+    </section>
+  );
+}
+
+const Book = (props) => {
+  const { img, title, author, displayValue } = props;
+
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <button onClick={displayValue}>click me</button>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+```
+- Here you have created the event `displayValue` inside of `bookList`, and in order to use it in the child component from `Book`, you need to pass it as a prop and receive it as well.
+
 
 
 
