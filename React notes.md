@@ -772,6 +772,50 @@ const Book = (props) => {
 
 Here he does a challenge. Look for the code in order to see what was done!
 
+## ES6 Modules
+> **Time stamp:** 3:48:51
+An ES6 module is a file containing JS code. There’s no special module keyword; a module mostly reads just like a script. There are two differences.
+- ES6 modules are automatically strict-mode code, even if you don’t write "use strict"; in them.
+- You can use import and export in modules.
+
+In this tutorial we'll only focus in two ways for importing modules.
+
+1. Go to src and create *books.js* and *Book.js*.
+2. Delete `books` from *index.js*.
+3. Add it to *books.js*.
+4. Let's put in *books.js* the next line:
+   ```jsx
+   export const books = [/*...*/]
+   ```
+5. In *index.js* you need to import the books from *books.js*. You can do it in the next way:
+   ```jsx
+   import {books} from './books'
+   ```
+   And now you can access books from other files :D
+6. Alternatively to step 4, you can do it also in this way:
+   ```jsx
+   //At the end of the code
+   export default books
+   ```
+7. And now in *index.js* you can import it like, for example:
+   ```jsx
+   import banana from './books'
+   ```
+   And if you make the changes in code from book to banana, it is going to work, but please leave it as `books`.
+8. Now go and take the `Book` function, cut it and paste it in *Book.js*.
+9. Add at the end of *Book.js*:
+    ```jsx
+    export default Book;
+    ``` 
+10. In *index.js*, you need to import it like:
+    ```jsx
+    import Book from './Book';
+    ```
+
+And yes, You've learned how do exports and imports work in React - Javascript :D
+
+## Local Images (src folder)
+
 
 
 
