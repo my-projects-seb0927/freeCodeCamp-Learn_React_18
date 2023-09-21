@@ -888,5 +888,92 @@ So for setting our project with vite, follow the next steps:
 - *assets* are in the *src* folder.
 - *build* -> *dist*
 
+---
+# Advanced React
+Now you have a tutorial directory. In order to follow the tutorial you have to work in the *starter* folder and in order to test the final import content from *final* and put them inside of `App`, like this:
+```jsx
+import Starter from './tutorial/1-useState/starter/1-error-example';
+import Final from './tutorial/1-useState/final/1-error-example';
+function App() {
+  return (
+    <div className='container'>
+      <Starter />
+      <Final />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## useState Hook
+> **Time stamp:** 4:49:55
+
+Let's say for example we want to do a counter, and we create the next app:
+```jsx
+function App() {
+
+  let count = 0;
+
+  const handleClick = () =>{
+    count = count + 1;
+    console.log(count);
+  }
+
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button type="button" onClick={handleClick}>
+        increase
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+Aaaaaand, it's not working. Why? Let's see:
+
+useState hook is a function we want to invoke that function and we want to pass in the default value, in order to use i, you need to invoke it like this:
+
+```jsx
+import { useState } from 'react';
+
+const UseStateBasics = () => {
+  console.log(useState(1));
+  return <h2>useState basics</h2>;
+};
+
+export default UseStateBasics
+```
+
+So the value `1` will be the default value, the console.log is returning `[1,f]`
+
+If we want to get the value inside of `useState`, you just need to do `const value = useState(1)[0]` and for finding the function that is controlling that value is `const func = useState(1)[1]`.
+
+So why is it important? See it:
+```jsx
+import { useState } from 'react';
+
+const UseStateBasics = () => {
+  const [count,setCount] = useState(0) //Here we are doing the same that I told in the last paragraph, we are deconstructing and obtainin the value and function.
+
+  const handleClick() => {
+    setCount(count + 1)
+  }
+
+  return <div>
+    <h4> You clicked {count}</h4>
+    <button type='button' className='btn' onClick={handleClick}></button>
+  </div>;
+};
+
+export default UseStateBasics
+```
+And now every you click the button, it will updated :D
+
+
+
 
 
