@@ -848,6 +848,15 @@ You need to learn how to save local images in the src folder, since they have a 
     ];
     ```
 
+## More Challenges
+> **Time stamp:** 4:02:06
+Yeah, another challenge...
+Go look the code ewe.
+And here I am adding the title challenge
+
+
+
+
 
 
 
