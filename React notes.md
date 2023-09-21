@@ -1,4 +1,4 @@
-# React notes
+# React notes - Fundamentals
 
 ## Folder Structure
 > **Time stamp:** 30:39
@@ -865,23 +865,12 @@ When we run the server in our code, we are running a development sever, ¿But wh
 5. Go and see your deployed website!.
 6. If you wan to change your site name: "Site settings" > "Change site name"
 
+THIS IS THE END OF REACT - FUNDAMENTALS
+---
+# React - Backroads Project
+For this part, we'll be working on a new project, so type inside the folder you are going to start: ```npx create-react-app@latest backroads-app```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+By the way, in *index.js* you have some tags called `<React.StrictMode>`, this is for returning me warnings in the developer server, and it will render the website twice. Take it in account!
 
 
 
