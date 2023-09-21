@@ -597,6 +597,60 @@ If you don't want to pull out the properties from `props`, here you can watch so
     };
     ```
 
+## Events
+> **Time-stamp:** 2:58:59
+
+Rendering a list with the help of components is awesome, but we need the user to interact with our applicacion, in other words, **It needs events**.
+
+### React Events
+React events are the recommended here in this tutorial because they are quite easy to implement. The most common of them are:
+- **`onClick`:** When the user clicks.
+- **`onSubmit`:** When the user submits forms.
+- **`onChange`:** When there is an input change.
+
+So in order to implement a React event, you need to:
+1. Create a component, in this case will be `EventExamples`:
+    ```jsx
+    const EventExamples = () => {
+
+    }
+    ```
+2. Components need to always return something, so let's make it return:
+    ```jsx
+    const EventExamples = () => {
+      return (
+        <section>
+          <form>
+            <h2>Typical Form</h2>
+            <input 
+            type='text' 
+            name='example' 
+            onChange={handleFormInput}
+            style={{ margin: '1rem 0'}}
+            />
+          </form>
+          <button onClick={handleButtonClick}>Click me</button>
+        </section>
+      );
+    }
+    ```
+
+3. Finally, we have settled up that the input will react `onChange` and that the button will react `onButton`  , but what functions are going to be executed? Let's create them inside of `EventExamples`!
+    ```jsx
+    const EventExamples = () => {
+      const handleFormInput = () => {
+        console.log('handle form input');
+      };
+      const handleButtonClick = () => {
+        alert('handle button click');
+      };
+    }
+    ```
+
+4. If you click in the button or type something in the input, their respective events will be getting executed. And it's done!
+
+
+
 
 
 
