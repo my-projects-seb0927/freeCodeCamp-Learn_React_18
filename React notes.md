@@ -854,6 +854,18 @@ Yeah, another challenge...
 Go look the code ewe.
 And here I am adding the title challenge
 
+## Deployment
+> **Time stamp:** 4:10:00
+
+When we run the server in our code, we are running a development sever, ¿But what if I want to deploy a frontend globally? Follow with me:
+1. `npm run build` It's for creating a production build, for deployment. It will create a extra folder: the *build* folder.
+2. You can use any provider for deployment a frontend, but in this tutorial it will be used ***netifly***. Sign up!
+3. Select "Add new site" > "Deploy manually".
+4. Drag the *build* folder that you created before.
+5. Go and see your deployed website!.
+6. If you wan to change your site name: "Site settings" > "Change site name"
+
+
 
 
 
