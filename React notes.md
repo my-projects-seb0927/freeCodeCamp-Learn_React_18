@@ -520,6 +520,87 @@ const books = [
 ];
 ```
 
+## Key Prop
+> **Time Stamp:** 2:51:12
+
+Somethines, when you are mapping through a list of components, you'll see an `index` variable inside of `map`. 
+
+> You can get away with putting index as a key, but this is not recommendable if you know that the list will be changing. (This is also the last chapter btw0.)
+
+### How to pass the entire object as a prop?
+If you don't want to pull out the properties from `props`, here you can watch some approaches :D
+
+- Pass the entire object as a prop:
+    ```jsx
+    function BookList() {
+      return (
+        <section className='booklist'>
+          {books.map((book) => {
+            console.log(book);
+            const { img, title, author } = book;
+            return <Book book={book} key={book.id}/>;
+          })}
+        </section>
+      );
+    }
+
+    const Book = (props) => {
+      const { img, title, author } = props.book;
+
+      return (
+        <article className='book'>
+          <img src={img} alt={title} />
+          <h2>{title}</h2>
+          <h4>{author} </h4>
+        </article>
+      );
+    };
+    ```
+- As an alternative for the `Book` component, you can do it also like this:
+    ```jsx
+    const Book = ({ book: { img, title, author } }) => {
+      return (
+        <article className='book'>
+          <img src={img} alt={title} />
+          <h2>{title}</h2>
+          <h4>{author} </h4>
+        </article>
+      );
+    };
+    ```
+
+- Use the map operator (How you've seen it in the last chapters). This is useful if I have an object and I want to pass all their properties
+- Use the spread operator:
+    ```jsx
+        function BookList() {
+      return (
+        <section className='booklist'>
+          {books.map((book) => {
+            return <Book {...book} key={book.id} />;
+          })}
+        </section>
+      );
+    }
+
+    const Book = (props) => {
+      const { img, title, author } = props;
+      return (
+        <article className='book'>
+          <img src={img} alt={title} />
+          <h2>{title}</h2>
+          <h4>{author} </h4>
+        </article>
+      );
+    };
+    const Book = ({ img, title, author }) => {
+      // rest of the code
+    };
+    ```
+
+
+
+
+
 
 
 
