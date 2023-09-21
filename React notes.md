@@ -767,6 +767,11 @@ const Book = (props) => {
 ```
 - Here you have created the event `displayValue` inside of `bookList`, and in order to use it in the child component from `Book`, you need to pass it as a prop and receive it as well.
 
+## Challenge
+> **Time stamp:** 3:35:53
+
+Here he does a challenge. Look for the code in order to see what was done!
+
 
 
 
