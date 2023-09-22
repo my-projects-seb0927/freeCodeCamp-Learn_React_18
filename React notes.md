@@ -973,7 +973,7 @@ export default UseStateBasics
 ```
 And now every you click the button, it will updated :D
 
-## Initial Render
+### Initial Render
 > **Time stamp:** 5:00:51
 
 In a React application, the initial render is the first time that the component tree is rendered to the DOM. It happens when the application first loads, or when the root component is first rendered. This is also known as "mounting" the components.
@@ -986,6 +986,27 @@ There are a few ways that you can trigger a re-render in a React component:
 
 - When the parent element re-renders, even if the component's state or props have not changed.
 
+### General Rules of Hooks
+> **Time stamp:** 5:03:57
+
+- All the hooks start with **use** (From react and custom hooks).
+- Components must be upperCase.
+- They have to be invoked inside the component body.
+- Don't call hooks conditionally.
+- Set functions don't update state inmediately.
+
+### useState with Array
+> **Time stamp:** 5:06:33
+
+[Just look the code ewe](03-advanced-react/src/tutorial/01-useState/final/03-useState-array.jsx)
+
+## Automatic Batching
+> **Time stamp:** 5:27:28
+In React, "batching" refers to the process of grouping multiple state updates into a single update. This can be useful in certain cases because it allows React to optimize the rendering of your components by minimizing the number of DOM updates that it has to perform.
+
+By default, React uses a technique called "auto-batching" to group state updates that occur within the same event loop into a single update. This means that if you call the state update function multiple times in a short period of time, React will only perform a single re-render for all of the updates.
+
+React 18 ensures that state updates invoked from any location will be batched by default. This will batch state updates, including native event handlers, asynchronous operations, timeouts, and intervals.
 
 
 
