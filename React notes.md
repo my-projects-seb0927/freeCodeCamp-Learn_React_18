@@ -1124,5 +1124,35 @@ return  (
 > }
 > ```
 
+## Set Function "Gotcha" 
+> **Time stamp:** 5:34:04
+
+useState has a defect, and it's that the state it's not updated inmediately and synchronously, for example if you have this piece of code:
+```javascript
+const handleClick = () => {
+  setValue(value + 1);
+  console.log(value)
+}
+```
+
+Meanwhile, in the browser, the number displayed will be `7`, the number in the console will be `6` and so on. In order to correct this you can pass a function to setState that receives the previous state as an argument and returns th new state. For example:
+```javascript
+setState((prevState) => {
+  return {...prevState, value: newValue};
+});
+```
+
+This can be useful if you need to update the state based on the previous state, or if you need to update the state synchronously, in our current example would be:
+```javascript
+const handleClick = () => {
+  setValue((currentState) => {
+    const newState = currentState + 1
+    return newState
+  });
+
+  console.log(value) // This is woring ok!
+}
+```
+
 
 
