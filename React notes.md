@@ -1154,5 +1154,51 @@ const handleClick = () => {
 }
 ```
 
+## useEffect Hook
+> **Time stamp:** 5:52:22
 
+useEffect is a hook in React that allows yoy to perform side effects in function components. Basically any work outside of the component. Some examples of side effects are: subscriptions, fetching data, directly updating the DOM, event listeners, timers, etc. ([Code file here](03-advanced-react\src\tutorial\02-useEffect\final\02-useEffect-basics.jsx))
+
+1. Import useEffect hook
+2. It accpets two arguments (Second optional)
+3. First argument - CallBack function
+  - By default, it runs on each render (Initial one and re-render).
+  - The CallBack function can't return promise (So can't make it async).
+4. Second argument - Dependency array
+  - If dependency array empty [] runs only on initial render
+
+So in order to start, it's neccesary to import it:
+```jsx
+import { useState, useEffect } from 'react';
+```
+
+Then we may use it like this:
+```jsx
+import { useState, useEffect } from 'react';
+
+const UseEffectBasics = () => {
+  const [value setValue] = useState(0);
+  const sayHello = () => {
+    console.log('hello there');
+  };
+
+  // This will be executed every time there is a render (Because 2nd argument is empty)
+  // That means: The initial render and every re-render from 'useState'
+  useEffect(() => {
+    console.log('hello from useEffect');
+  });
+
+  return (
+    // [...]
+  )
+}
+```
+
+Now, if we put a dependency array:
+```jsx
+// Now only runs in the initial render
+useEffect(() => {
+  console.log('hello from useEffect');
+}, []);
+```
 
