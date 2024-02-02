@@ -716,6 +716,7 @@ const EventExamples = () => {
 
 ## Mind Grenade
 > **Time stamp:** 3:21:51
+
 It's not neccessary to create those functions handelers that we created before! You can also pass them as anonymous functions like this:
 ```jsx
 const EventExamples = () => {
@@ -774,6 +775,7 @@ Here he does a challenge. Look for the code in order to see what was done!
 
 ## ES6 Modules
 > **Time stamp:** 3:48:51
+
 An ES6 module is a file containing JS code. There’s no special module keyword; a module mostly reads just like a script. There are two differences.
 - ES6 modules are automatically strict-mode code, even if you don’t write "use strict"; in them.
 - You can use import and export in modules.
@@ -850,6 +852,7 @@ You need to learn how to save local images in the src folder, since they have a 
 
 ## More Challenges
 > **Time stamp:** 4:02:06
+
 Yeah, another challenge...
 Go look the code ewe.
 And here I am adding the title challenge
@@ -959,7 +962,7 @@ import { useState } from 'react';
 const UseStateBasics = () => {
   const [count,setCount] = useState(0) //Here we are doing the same that I told in the last paragraph, we are deconstructing and obtainin the value and function.
 
-  const handleClick() => {
+  const handleClick = () => {
     setCount(count + 1)
   }
 
@@ -999,6 +1002,64 @@ There are a few ways that you can trigger a re-render in a React component:
 > **Time stamp:** 5:06:33
 
 [Just look the code ewe](03-advanced-react/src/tutorial/01-useState/final/03-useState-array.jsx)
+
+This my solution by the way:
+```javascript
+/*
+- Import data 
+- Setup a state value
+  - People - default value equal to data
+  - Display list(people) in the browser
+
+  - Create two functions
+    - One that removes single item from the list
+    - One that clears entire list
+*/
+
+// Importing data and the neccesary
+import { useState } from 'react';
+import people from './people'
+
+const UseStateArray = () => {
+
+  //Creating the useState
+  const [peopleState, setPeopleState] = useState(people)
+
+  // Using the setPeopleState for deleting a person
+  // **This is only working when there are no repeated people**
+  const deletePerson = (person) => {
+    const updatedPeople = peopleState.filter((p) => p !== person);
+    setPeopleState(updatedPeople);
+  }
+
+  const deletePeople = () => {
+    const updatedPeople = []
+    setPeopleState(updatedPeople)
+  }
+
+  // Component that returns each one of the people
+  const newPeople = peopleState.map((person) => {
+    return (
+      <div>
+        <h3>{person}</h3>
+        <button type='button' name='delete' onClick={() => deletePerson(person)}>Delete</button>
+      </div>
+      )
+  })
+
+  // Final Return
+  return(
+    <>
+      <h2>useState array example</h2>
+      {newPeople}
+      <button type='button' name='deleteAll' onClick={() => deletePeople()}>Delete All</button>
+    </>
+  )
+
+};
+
+export default UseStateArray;
+```
 
 ## Automatic Batching
 > **Time stamp:** 5:27:28
