@@ -597,6 +597,16 @@ If you don't want to pull out the properties from `props`, here you can watch so
     };
     ```
 
+    And this is *people.jsx*:
+    ```javascript
+    // Creating data of people
+    const people = ['John', 'Alexander', 'Cassandra', 'Tom', 'Sara']
+
+    // Exporting data
+    export default people
+    ```
+
+
 ## Events
 > **Time-stamp:** 2:58:59
 
