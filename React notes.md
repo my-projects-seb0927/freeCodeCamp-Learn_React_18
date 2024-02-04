@@ -1274,7 +1274,7 @@ const getTours = async() => {
   try {
     const resp = await fetch(url)
     return resp.json()
-
+    
   } catch (error) {
     console.log(error);
   }
@@ -1285,3 +1285,7 @@ getTours().then()
 
 ```
 
+## Fetch Data
+> **Time stamp:** 6:02:57 
+
+You can see the [code here](03-advanced-react\src\tutorial\02-useEffect\final\04-fetch-data.jsx)
