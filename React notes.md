@@ -1316,6 +1316,9 @@ const MultipleReturnsBasics = () => {
 export default MultipleReturnsBasics;
 ```
 
+## Multiple Returns - Fetch Data
+> **Time stamp:** 6:22:54
 
+You can see the [code here](03-advanced-react\src\tutorial\03-conditional-rendering\final\02-multiple-returns-fetch-data.jsx)
 
 
