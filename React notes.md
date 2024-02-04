@@ -1289,3 +1289,33 @@ getTours().then()
 > **Time stamp:** 6:02:57 
 
 You can see the [code here](03-advanced-react\src\tutorial\02-useEffect\final\04-fetch-data.jsx)
+
+## Multiple Returns - Basic
+> **Time stamp:** 6:17:15
+
+In Vanilla JS we can setup multiple returns, and we can make the same in React:
+```jsx
+import { useEffect, useState } from 'react';
+
+const MultipleReturnsBasics = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect (() => {
+    setTimeout(() => {
+      // Done Fetching data
+      setIsLoading(false);
+    }, 3000)
+  })
+
+  // After 3 seconds, the webiste "will be loaded"
+  if(isLoading){
+    return <h2>Loading...</h2>;
+  }
+  return <h2>Multiple Returns Basics</h2>;
+};
+export default MultipleReturnsBasics;
+```
+
+
+
+
