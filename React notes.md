@@ -1202,3 +1202,86 @@ useEffect(() => {
 }, []);
 ```
 
+## Dependency Array
+> **Time stamp:** 5:59:15
+
+Now, we don't want `useEffect` to be executed every time we do a render. That's what the **Dependency array** is for, for indicating when do we want to apply a specific effect. Let's take for example ([Code here](03-advanced-react\src\tutorial\02-useEffect\final\03-multiple-effects.jsx)):
+```jsx
+import { useState, useEffect } from 'react';
+
+const MultipleEffects = () => {
+  const [value, setValue] = useState(0);
+  const [secondValue, setSecondValue] = useState(0);
+
+  /* This useEffect is only executed when the 'value' is updated.
+  That means when the first button is pushed
+  */
+  useEffect(() => {
+    console.log('hello from first useEffect');
+  }, [value]);
+
+  /* This useEffect is only executed when the 'secondValue' is updated.
+  That means when the second button is pushed
+  */
+  useEffect(() => {
+    console.log('hello from second useEffect');
+  }, [secondValue]);
+
+  return (
+    <div>
+      <h1>value : {value}</h1>
+      <button className='btn' onClick={() => setValue(value + 1)}>
+        value
+      </button>
+      <h1>second value : {secondValue}</h1>
+      <button className='btn' onClick={() => setSecondValue(secondValue + 1)}>
+        second value
+      </button>
+    </div>
+  );
+};
+
+export default MultipleEffects;
+```
+
+## Javascript Nuggets - Fetch API
+> **Time stamp:** 6:02:57 
+
+Fetch API is a Browser API for HTTP (AJAX) Requests.
+
+- It's not necessary to import it since it comes by default.
+- It does GET Requests by default.
+- It supports other methods as well.
+- It returns a Promise.
+
+This is how you can use it:
+```jsx
+const url = 'https://www.course-api.com/react-tours-project'
+
+console.log(fetch(url)) // This returns 'Promise(<pending>)
+
+fetch(url) // Do a GET request
+  .then((resp) => console.log(resp)) // Take the COMPLETE request
+  .catch(err => console.log(err)) // Catch the error if there is one
+
+fetch(url)
+  .then((resp) => resp.json()
+  .then(data => console.log(data))) // This is how you display the JSON request
+  .catch(err => console.log(err))
+
+// How to do a request with async()
+const getTours = async() => {
+  try {
+    const resp = await fetch(url)
+    return resp.json()
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getTours().then()
+
+
+```
+
