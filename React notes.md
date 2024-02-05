@@ -1475,5 +1475,26 @@ You can see the [code here](03-advanced-react/src/tutorial/02-useEffect/final/05
 
 > 💡 Ok, I didn't know that `useEffect` could be implemented inside a component, in that way if the component renders, then the `useEffect` inside of it renders with it.
 
+Basically the important is here:
+```jsx
+const RandomComponent = () => {
+  useEffect(() => {
+    // console.log('hmm, this is interesting');
+    const intID = setInterval(() => {
+      console.log('hello from interval');
+    }, 1000);
+    // does not stop, keeps going
+    // every time we render component new interval gets created
+    return () => clearInterval(intID);
+  }, []);
+
+  return <h1>hello there</h1>;
+};
+```
+
+Because setInterval will be executed every second **non-stop**, that means that after the component is not rendering, it will be still executing it. In order to stop it, it's neccesary to use a Cleanup Function.
+
+> 💡 This also is neccesary for event listeners. This is solved with `return () => window.removeEventListener('scroll')`
+
 
 
