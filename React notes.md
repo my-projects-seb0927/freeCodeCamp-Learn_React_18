@@ -1378,6 +1378,55 @@ In this example, the displayName() function returns the name property of the use
 
 Here we apply the last topic in React code. You can see the [code here](03-advanced-react\src\tutorial\03-conditional-rendering\final\04-short-circuit-overview.jsx)
 
+## Short Circuit Evaluation React - Common Approaches
+> **Time stamp:** 7:02:15
 
+Here we keep applying the last topic in React code. You can see the [code here](03-advanced-react\src\tutorial\03-conditional-rendering\final\05-short-circuit-examples.jsx)f
+
+But this is important, with this approach you can return components:
+```jsx
+// If the user exists, then build the component
+{user && <SomeComponent name={user.name} / >}
+```
+
+## Ternary Operator
+> **Time stamp:** 7:10:00
+
+Vanilla JS
+
+In JavaScript, the ternary operator is a way to concisely express a simple conditional statement. It is often called the "conditional operator" or the "ternary conditional operator".
+
+Here is the basic syntax for using the ternary operator:
+
+```js
+condition ? expression1 : expression2;
+```
+
+If condition is truthy, the operator will return expression1. If condition is falsy, it will return expression2.
+
+Jobster Example
+
+[Jobster ](https://redux-toolkit-jobster.netlify.app/landing)
+
+You can do things like this:
+```jsx
+// True = edit --- False = add
+<button>{isEditing ?'edit':'add'}</button>
+```
+
+or:
+```jsx
+{user ? (<div>
+      <h4> hello there user {user.name} </h4>
+    </div>
+  ) : (
+    <div>
+      <h4> Please, login </h4>
+    </div>
+  )}
+```
+
+
+ 
 
 
