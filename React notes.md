@@ -1496,5 +1496,13 @@ Because setInterval will be executed every second **non-stop**, that means that 
 
 > 💡 This also is neccesary for event listeners. This is solved with `return () => window.removeEventListener('scroll')`
 
+## You Might not Need an Effect
+> **Time stamp:** 7:41:27 
+
+There are moments where an Effect may not be used, for example: For fetching data many libraries are being used today. Take a look and read [You Might Not Need an Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
+
+
+
+
 
 
