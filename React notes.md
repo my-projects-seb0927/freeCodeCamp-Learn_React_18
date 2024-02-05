@@ -1316,9 +1316,13 @@ const MultipleReturnsBasics = () => {
 export default MultipleReturnsBasics;
 ```
 
-## Multiple Returns - Fetch Data
+## Multiple Returns - Fetch Data - Fetch Errors "Gotcha"
 > **Time stamp:** 6:22:54
 
 You can see the [code here](03-advanced-react\src\tutorial\03-conditional-rendering\final\02-multiple-returns-fetch-data.jsx)
 
 
+## Order Matters
+> **Time stamp:** 6:40:40
+
+Nothing important here, just that you should start working with the variables that fetches data on your component after you have modified the state, **not before**
