@@ -1326,3 +1326,49 @@ You can see the [code here](03-advanced-react\src\tutorial\03-conditional-render
 > **Time stamp:** 6:40:40
 
 Nothing important here, just that you should start working with the variables that fetches data on your component after you have modified the state, **not before**
+
+## Truthy and Falsy Values
+> **Time stamp:** 6:51:45
+
+Maybe you can [read this](https://www.freecodecamp.org/news/what-are-falsey-values-in-javascript)
+
+## Short Circuit Evaluation
+> ** Time stamp:** 6:53:55
+
+In JavaScript, short-circuit evaluation is a techinque that allows you to use logical operators (such as && and ||) to perform conditional evaluations in a concise way.
+
+The && operator returns the first operand if it is "falsy", or the second operand if the first operand is "thruthy"
+
+For example:
+```javascript
+const x = 0;
+const y = 1;
+
+console.log(x && y) // Output: 0 (First operand)
+console.log(y && x) // Output: 0 (Second operand)
+```
+
+The || operator (logical OR) returns the first operand if it is "thruty", or the second operand if the first operand is "falsy"
+
+For example:
+```javascript
+const x = 0;
+const y = 1;
+
+console.log(x || y) // Output: 1 (First operand)
+console.log(y || x) // Output: 1 (Second operand)
+```
+Short-circuit evaluation can be useful in cases where you want to perform a certain action only if a certain condition is met, or you want to return a default value if a certain condition is not met.
+
+For example:
+
+```js
+function displayName(name) {
+  return name || 'Anonymous';
+}
+
+console.log(displayName('Pizza')); // Output: "Pizza"
+console.log(displayName()); // Output: "Anonymous"
+```
+
+In this example, the displayName() function returns the name property of the user object if it exists, or "Anonymous" if the name property is not present. This is done using the || operator and short-circuit evaluation.
