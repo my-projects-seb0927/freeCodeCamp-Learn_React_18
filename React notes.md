@@ -1468,7 +1468,12 @@ You can see the [code here](03-advanced-react\src\tutorial\03-conditional-render
 You can see the [code here](03-advanced-react/src/tutorial/03-conditional-rendering/final/07-user-challenge.jsx). I was lazy :p
 
 
+## Cleanup Function
+> **Time stamp:** 7:25:38
 
+You can see the [code here](03-advanced-react/src/tutorial/02-useEffect/final/05-cleanup-function).
+
+> 💡 Ok, I didn't know that `useEffect` could be implemented inside a component, in that way if the component renders, then the `useEffect` inside of it renders with it.
 
 
 
