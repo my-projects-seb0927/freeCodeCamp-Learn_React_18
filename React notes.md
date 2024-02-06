@@ -1502,6 +1502,130 @@ Because setInterval will be executed every second **non-stop**, that means that 
 There are moments where an Effect may not be used, for example: For fetching data many libraries are being used today. Take a look and read [You Might Not Need an Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
 
 
+## Project Structure - Default Export
+> **Time stamp:** 7:44:57
+
+I will resume what this section is about:
+
+We can import components from different *.jsx* files using *index.jsx*.
+
+*index.jsx* is a file where, If I import a component from a folder where that file exists, then it will look for the component in that file (Used as an entrypoint).
+
+In the components, you must export them as default, just like this:
+```jsx
+// Navbar.jsx
+const Navbar = () => {
+  return (
+    <div className='navbar'>
+      <h2>navbar component</h2>
+    </div>
+  );
+};
+export default Navbar;
+```
+
+In *index.jsx* you export the component:
+```jsx
+//index.jsx
+export { default } from './Navbar';
+```
+
+And then you can use it like this:
+```jsx
+//App.jsx
+
+// Here, The import is doing it to the folder but since we have a index.jsx file there, then it is going to be executed on that file
+import Navbar from './tutorial/04-project-structure/starter/Navbar';
+
+function App() {
+  return (
+    <div className='container'>
+      <Navbar />
+    </div>
+  )
+}
+
+export default App;
+```
+
+You can see how is done inside the 04-project-structure/Navbar folder
+
+## Project Structure - Named Exports
+> **Time stamp:** 7:51:40
+
+If you have two files: *About.jsx* and *Home.jsx*, you can import them inside of the explained *index.jsx*:
+
+```jsx
+//index.jsx
+import Home from './Home';
+import About from './About';
+
+export { Home, About };
+```
+
+And in *App.jsx* import them like this:
+```jsx
+import { Home,About } from './tutorial/04-project-structure/starter/pages'
+
+//App.jsx
+function App(){
+  return(
+    <div className='container'>
+      <Home />
+      <About />
+    </div>
+  )
+}
+```
+
+You can see how is done inside the 04-project-structure/Pages folder
+
+## Project Structure - Export Group
+> **Time stamp:** 7:56:04
+
+This is for exporting all the components in a group **in a component**.
+
+If you have two files: *FirstComponent.jsx* and *SecondComponent.jsx*, you can import them inside of the explained *index.jsx*:
+
+```jsx
+import FirstComponent from './FirstComponent';
+import SecondComponent from './SecondComponent';
+
+const Example = () => {
+  return (
+    <div>
+      <FirstComponent />
+      <SecondComponent />
+    </div>
+  );
+};
+export default Example;
+```
+
+And in *App.jsx:*
+```jsx
+import Example from "./tutorial/04-project-structure/starter/Example";
+
+function App(){
+  return(
+    <div className='container'>
+      <Example/>
+    </div>
+  )
+}
+
+export default App;
+```
+
+> 💡 Some VS Code extensions recommended: Code Spell Checker (Spelling Errors) and Glean (Take elements written in code as components and create a file instantly) **Time stamp:** 7:59:30
+
+
+
+
+
+
+
+
 
 
 
