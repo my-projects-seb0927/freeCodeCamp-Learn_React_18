@@ -1667,6 +1667,30 @@ people.forEach((person) => {
 })
 ```
 
+## Default Values
+> **Time stamp:** 8:14:43
+
+In JavaScript, when defining a function, you can specify default values for its parameters. This means that if a caller of the function does not provide a value for a particular parameter, the default value will be used instead. Default parameters are defined by assigning a value to the parameter in the function definition.
+
+For example, consider the following function, which takes two parameters, x and y, and returns their sum:
+
+```js
+function add(x, y) {
+  return x + y;
+}
+```
+
+If we call this function with only one argument, it will return NaN because y is undefined.
+
+We can set default values for x,y as:
+
+```js
+function add(x = 0, y = 0) {
+  return x + y;
+}
+```
+
+Now, if we call add(3), the function will return 3, because the default value of 0 is used for the y parameter.
 
 
 
