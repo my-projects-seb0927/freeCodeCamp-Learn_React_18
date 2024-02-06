@@ -1619,6 +1619,57 @@ export default App;
 
 > 💡 Some VS Code extensions recommended: Code Spell Checker (Spelling Errors) and Glean (Take elements written in code as components and create a file instantly) **Time stamp:** 7:59:30
 
+## Leverage Javascript
+> **Time stamp:** 8:02:25
+
+This section is for solving problems with importing data using javascript. You can see the [code here](03-advanced-react/src/tutorial/05-leverage-javascript/final/List.jsx) in that folder
+
+### Optional Chaining - Javascript Nuggets
+> **Time stamp:** 8:02:25
+
+Let's say we have the next `people` variable representing our data:
+```javascript
+const people = [
+  {
+    name: 'bob',
+    location: { street: '123 main street',
+    timezone: { offset: '+7:00' } },
+  },
+  { name: 'peter', location: { street: '123 Pine Street' } },
+  {
+    name: 'susan',
+    location: { street: '123 Apple street', 
+    timezone: { offset: '+9:00' } },
+  }
+]
+```
+ 
+If we want to enter to the timezone property of each person, we may find an error because of *peter*, so how can this be solved?
+
+```jsx
+people.forEach((person) => {
+  console.log(person.location.timezone.offset) // This will fail on the second person
+})
+```
+
+The way for solving it is using Optional Chaining:
+```jsx
+people.forEach((person) => {
+  // If the location works, go for timezone
+  // If the timezone exists, then go for offset
+  console.log(person.location && person.location.timezone && person.location.timezone.offset)
+})
+
+// This is the solution with optional chaining
+people.forEach((person) => {
+  // If the item doesn't exist, throw a default value
+  console.log(person?.location?.timezone?.offset || 'Default value')
+})
+```
+
+
+
+
 
 
 
