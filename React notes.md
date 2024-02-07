@@ -1693,17 +1693,63 @@ function add(x = 0, y = 0) {
 Now, if we call add(3), the function will return 3, because the default value of 0 is used for the y parameter.
 
 
+## Controlled Inputs
+> **Time stamp:** 8:24:46
 
+A way to setup a controlled input can be like this:
+```jsx
+import { useState } from 'react';
+const ControlledInputs = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
+  // const handleChange = (e) => {
+  //   // for now we won't use it
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+  // };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // do something
+    // Usually in this part is where a POST request is done
+    console.log(name, email);
+  };
+  return (
+    <form className='form' onSubmit={handleSubmit}>
+      <h4>controlled inputs</h4>
+      <div className='form-row'>
+        <label htmlFor='name' className='form-label'>
+          name
+        </label>
+        <input
+          type='text'
+          className='form-input'
+          value={name} //THIS IS IMPORTANT
+          onChange={(e) => setName(e.target.value)}
+          id='name'
+        />
+      </div>
+      <div className='form-row'>
+        <label htmlFor='email' className='form-label'>
+          Email
+        </label>
+        <input
+          type='email'
+          className='form-input'
+          id='email'
+          value={email} // THIS IS IMPORTANT
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <button type='submit' className='btn btn-block'>
+        submit
+      </button>
+    </form>
+  );
+};
+export default ControlledInputs;
 
+```
 
-
-
-
-
-
-
-
-
-
+In this piece of code, every time a field changes, the state of the value also changes with it
