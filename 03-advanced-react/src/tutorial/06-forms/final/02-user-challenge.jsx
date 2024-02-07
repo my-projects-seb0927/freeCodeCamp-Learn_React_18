@@ -13,7 +13,7 @@ const UserChallenge = () => {
     // if value, setup new user and add to current users
     const fakeId = Date.now();
     console.log(fakeId);
-    // const newUser = { id: fakeId, name: name };
+    // const newUser = { id: fakeId, name: name }; This is a ES6 shorthand
     const newUser = { id: fakeId, name };
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);

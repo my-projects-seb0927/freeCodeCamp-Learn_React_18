@@ -1753,3 +1753,10 @@ export default ControlledInputs;
 ```
 
 In this piece of code, every time a field changes, the state of the value also changes with it
+
+## Controlled Inputs - User Challenge
+> **Time stamp:** 8:39:52
+
+You can see the [code here](03-advanced-react/src/tutorial/06-forms/final/02-user-challenge.jsx)
+
+
