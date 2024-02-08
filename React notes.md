@@ -1759,4 +1759,80 @@ In this piece of code, every time a field changes, the state of the value also c
 
 You can see the [code here](03-advanced-react/src/tutorial/06-forms/final/02-user-challenge.jsx)
 
+## Javascript Nuggets - Dynamic Object Keys
+> **Time stamp:** 8:54:03
+
+It's possible to access to a property of an object in the next way:
+```javascript
+// dot notation
+const person = {
+  name: 'john,
+};
+
+console.log(person.name); // john
+person.age = 25;
+console.log(person); // { name: 'john', age: 25 }
+```
+
+But let's face the next problem:
+```javascript
+const items = {
+  // The key is a string because hyphens ("-") are not permitted
+  'featured-items': ['item1', 'item2']
+}
+
+// This WILL NOT work
+console.log(items.featured-items)
+
+// This WILL WORK
+console.log(items["featured-items"]) // ['item1', 'item2']
+```
+
+**Using square bracket notation let's us set keys dynamically**
+
+```javascript
+let appState = 'loading';
+
+const app = {
+  [appState]: true
+}
+
+// The key will be the value of appState
+console.log(app) // { loading: true}
+
+appState = 'error'
+console.log(app) // { error: true}
+
+const keyName = 'computer'
+app[keyName] = 'apple'
+console.log(app) // { error: true, computer: 'apple'}
+```
+
+An example of how useful is this:
+```javascript
+const state = {
+  loading:true,
+  name:'',
+  job;''
+}
+
+function updateState(key,value){
+  state[key] = value
+}
+
+// Updating values in existing keys
+updateState('name','john');
+updateState('job','developer');
+updateState('loading',false); 
+
+// Creating a new key in state
+updateState('products',[])
+```
+
+## Multiple Inputs
+> **Time stamp:** 8:54:03
+
+What to do when there is not only but multiple text fields? 
+
+You can check the [code here](03-advanced-react/src/tutorial/06-forms/final/03-multiple-inputs.jsx)
 
