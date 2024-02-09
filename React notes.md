@@ -2053,6 +2053,19 @@ You can check the [code here](03-advanced-react/src/tutorial/06-forms/final/05-f
 
 You can check the [code here](03-advanced-react/src/tutorial/07-useRef/final/01-useRef-basics.jsx)!
 
+## Custom Hooks
+> **Time stamp:** 9:37:48
+
+Sometimes, we wish that there was a Hook for some more specific purpose: for example, to fetch data, to keep track of whether the user is online, or to connect to a chat room. You can create your own Hooks for your application's needs.
+
+You can check [documentation](https://react.dev/learn/reusing-logic-with-custom-hooks)! You can understand it easily.
+
+**Rules:**
+- They have the same rules as regular hooks
+- They have a re-use functionality
+- They always start with `use`
+
+You can check the [code here](03-advanced-react/src/tutorial/08-custom-hooks/final)
 
 
 
