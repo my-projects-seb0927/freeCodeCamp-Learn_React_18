@@ -2046,3 +2046,16 @@ If you have more than one input is a agreat solution. **Inputs must have name at
 
 You can check the [code here](03-advanced-react/src/tutorial/06-forms/final/05-form-data.jsx)
 
+## UseRef Hook
+> **Time stamp:** 9:25:00
+
+`useRef` is a React Hook that lets you reference a value that's not needed for rendering, in other words, it preserves value between renders but the only differenc is that **updating `useRef` does not trigger re-render**. You can think of it as a container
+
+You can check the [code here](03-advanced-react/src/tutorial/07-useRef/final/01-useRef-basics.jsx)!
+
+
+
+
+
+
+
