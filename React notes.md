@@ -1836,3 +1836,213 @@ What to do when there is not only but multiple text fields?
 
 You can check the [code here](03-advanced-react/src/tutorial/06-forms/final/03-multiple-inputs.jsx)
 
+## Other Inputs
+> **Time stamp:** 9:06:03
+
+And what about check buttons or a list of options?
+
+Check the [code here](03-advanced-react/src/tutorial/06-forms/final/04-other-inputs.jsx)
+
+## Javascript Nuggets - FormData API
+> **Time stamp:** 9:14:21 The code is [here](https://github.com/john-smilga/javascript-nuggets/tree/master/29-form-data-api)
+
+Let's say we have the next code:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Nuggets</title>
+    <link rel="stylesheet" href="./local.css" />
+    <style></style>
+  </head>
+  <body>
+    <form class="form">
+      <h4>formData API</h4>
+      <!-- name -->
+      <div class="form-row">
+        <label class="form-label" for="name">name</label>
+        <!-- The name is important -->
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-input name-input"
+        />
+      </div>
+      <!-- email -->
+      <div class="form-row">
+        <label class="form-label" for="email">email</label>
+        <!-- The name is important -->
+        <input
+          type="email"
+          name="email" 
+          id="email"
+          class="form-input email-input"
+        />
+      </div>
+      <!-- password -->
+      <div class="form-row">
+        <label class="form-label" for="password">password</label>
+        <!-- The name is important -->
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-input password-input"
+        />
+      </div>
+      <button type="submit" class="btn btn-block">register</button>
+    </form>
+    <script src="./app.js"></script>
+  </body>
+</html>
+```
+
+It's possible to use the FormData API in the next way:
+
+```js
+// Selecting the form
+const form = document.querySelector('.form');
+// Selecting the fields
+const nameInput = document.querySelector('.name-input');
+const emailInput = document.querySelector('.email-input');
+const passwordInput = document.querySelector('.password-input');
+
+// Listening for a submit event
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nameValue = nameInput.value;
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
+
+  // Check for empty values
+  if (!nameValue || !emailValue || !passwordValue) {
+    console.log('please provide values');
+    return;
+  }
+  // Do something
+  console.log(nameValue, emailValue, passwordValue);
+
+  // After that clear values
+  nameInput.value = '';
+  emailInput.value = '';
+  passwordInput.value = '';
+});
+```
+
+These are some of its functionalities:
+
+```js
+const form = document.querySelector('.form');
+// also valid approach
+// const formData = new FormData(form);
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  // won't directly return values
+  console.log(formData); // FormData {}. If you expand this result
+  // You will see all the methods that FormData has
+});
+```
+
+How to access values?
+```js
+const form = document.querySelector('.form');
+// also valid approach
+// const formData = new FormData(form);
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  // won't directly return values
+  console.log(formData);
+
+  // spread out - entries, values, keys
+  const entries = [...formData.entries()];
+  console.log(entries); // [['name', 'john'], ['email', 'john@gmail.com'], ['password', 'secret']]
+  const values = [...formData.values()];
+  console.log(values); // ['john', 'john@gmail.com', 'secret']
+  const keys = [...formData.keys()];
+  console.log(keys); // ['name, 'email', 'password']
+
+  // iterate over with "for of" loop
+  for (let [name, value] of formData) {
+    console.log(`${name} = ${value}`);
+    // name = john
+    // email = john@gmail.com
+    // password = secret
+  }
+
+  // check for value
+  const name = formData.get('name'); // 'john'
+  console.log(name);
+  // append
+  formData.append('test', 'test'); // It appends those values as [key, value]
+  // delete
+  formData.delete('test'); // Deletes the key from the array 
+  formData.delete('email'); // Deletes the email from the array
+  // check property
+  const checkName = formData.has('name'); // True or false if it has the key
+  console.log(checkName);
+
+  const entries = [...formData.entries()];
+  console.log(entries);
+
+  // it's not JSON so....(depends on the server)
+  axios.post('someUrl', formData); // It's going to send it as [[], [], []]
+
+  // This is for converting it as a JSON!
+  const formObject = Object.fromEntries(formData);
+  console.log(formObject);
+  // will work
+  axios.post('someUrl', formObject);
+
+  // reset
+  e.currentTarget.reset();
+});
+```
+
+Finally, hwo to do it with Object from entries:
+
+```js
+const entries = new Map([
+  ['foo', 'bar'],
+  ['baz', 42],
+]);
+
+const obj = Object.fromEntries(entries);
+
+console.log(obj);
+// Expected output: Object { foo: "bar", baz: 42 }
+```
+
+```js
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  const values = [...formData.values()];
+
+  if (values.includes('')) {
+    console.log('please enter all values');
+    return;
+  }
+  const formObject = Object.fromEntries(formData);
+  // do something
+  console.log(formObject);
+
+  e.currentTarget.reset();
+});
+```
+
+## FormData API
+> **Time stamp:** 9:14:21
+
+If you have more than one input is a agreat solution. **Inputs must have name attribute**
+
+You can check the [code here](03-advanced-react/src/tutorial/06-forms/final/05-form-data.jsx)
+
