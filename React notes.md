@@ -2129,6 +2129,9 @@ This is how you can use Context API:
     const{ user, logout } = useAppContext()
     ```
 
+## Setup Global Context
+> **Time stamp:** 10:19:07
 
+Well, If you want to use Context API but for *+all of your application**, you may watch what he did in ths part :p
 
 
