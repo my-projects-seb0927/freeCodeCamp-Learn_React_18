@@ -2134,4 +2134,109 @@ This is how you can use Context API:
 
 Well, If you want to use Context API but for *+all of your application**, you may watch what he did in ths part :p
 
+## useReducer Hook
+> **Time stamp:** 10:30:54
 
+```jsx
+useReducer(<reducer>, <initialState>)
+```
+
+useReducer is a React Hook that lets you add a reducer to your component. The reducer function contains your custom state logic and the initialStatecan be a simple value but generally will contain an object.
+
+The useReducer Hook returns the current state and a dispatch method.
+
+In order to use it, follow the steps! Btw, the [code is here](03-advanced-react/src/tutorial/10-useReducer/final/01-useReducer.jsx)
+
+1. Import it:
+  ```jsx
+  import { useState, useReducer } from 'react';
+  ```
+
+2. Create a function where the Reducer will be hosted:
+  ```jsx
+  const ReducerBasics = () => {
+
+  }
+  ```
+
+3. Create a Reducer:
+  ```jsx
+  const reducer = () => {
+
+  }
+  ```
+
+4. Create a default state or initial state:
+  ```jsx
+  const defaultState = {
+    people:data
+  }
+  ```
+
+5. Now, inside of `ReducerBasics` we can use the `useReducer` hook:
+  ```jsx
+  const ReducerBasics = () => {
+    useReducer(reducer, defaultState)
+  }
+  ```
+
+6. Now deestructure what we are obtaining with `useReducer`:
+  ```jsx
+  const ReducerBasics = () => {
+    const [state, dispatch] = useReducer(reducer, defaultState)
+  }
+  ```
+
+  Now, this is very similar to `useState` structure, but the main difference is that `dispatch` updates the state indirectly.
+
+7. Before, we would be calling our state like `people`, but since now our state is an object, it is now `state.people`, let's modify it:
+  ```jsx
+  // Here the change is applied!
+  {state.people.map((person) => {
+    const { id, name } = person;
+    return (
+      <div key={id} className='item'>
+        <h4>{name}</h4>
+        <button onClick={() => removeItem(id)}>remove</button>
+      </div>
+    );
+  })}
+  ```
+
+8. Now, for updating the state is different to `useState`. You have to dispatch an action and that action is going to be handled in the `reducer`, whatever is handled, the `reducer` will be the new state. `reducer` receives the state and the action:
+  ```jsx
+  const reducer = (state, action) => {};
+  ```
+
+9. Now, this is the way for dispatching actions:
+  ```jsx
+  const clearList = () => {
+    dispatch({type:'do something'})
+    // setPeople([]);
+  }
+  ```
+
+  And that `'do something'` will be handled in the `reducer`
+
+
+10. We want to clear the list. This is the way for doing it:
+  ```jsx
+  const clearList = () => {
+    dispatch({type:'CLEAR_LIST'})
+    // setPeople([]);
+  }
+  ```
+  The convention is to use one word and everything in uppercase for the value in `type`
+
+  And for the `reducer`, we need to handle the action, and is done in this way:
+  ```jsx
+  const reducer = (state, action) => {
+    if(action.type === 'CLEAR_LIST'){
+      // We have to use the spread operator because we may have more keys inside of defaultState
+      return {...state, people: []} 
+    }
+  }
+  ```
+
+## Actions and Default State
+> **Time stamp:** 10:58:25
