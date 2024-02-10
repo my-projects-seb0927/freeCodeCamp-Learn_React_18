@@ -2067,7 +2067,67 @@ You can check [documentation](https://react.dev/learn/reusing-logic-with-custom-
 
 You can check the [code here](03-advanced-react/src/tutorial/08-custom-hooks/final)
 
+## Context API
+> **Time stamp:** 9:54:02 
 
+The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on. 
+
+You can check the code with [prop drilling](03-advanced-react/src/tutorial/09-context-api/final/prop-drilling) and with [Context API](03-advanced-react/src/tutorial/09-context-api/final/context)
+
+This is how you can use Context API:
+
+1. Import Context from API:
+  ```jsx
+  import { createContext } from 'react';
+  import { useContext } from 'react';
+  ```
+
+2. Create the context:
+  ```jsx
+  export const NavbarContext = createContext();
+  ```
+
+3. Now we next to wrap the return value with `NavbarContext.Provider` and inside of `value` we will save in an object the values we need to pass:
+  ```jsx
+  return (
+    <NavbarContext.Provider value={{ user, logout }}>
+      <nav className='navbar'>
+        <h5>CONTEXT API</h5>
+        <NavLinks />
+      </nav>
+    </NavbarContext.Provider>
+  );
+  ```
+
+  4. Inside of the component where we need the values (In our case, [`UserContainer.jsx`](03-advanced-react/src/tutorial/09-context-api/final/context/UserContainer.jsx)), we need to import:
+    ```jsx
+    import { useContext } from "react";
+    import { NavbarContext} from "./Navbar"; // The context we just created
+    ```
+
+  5. And we can access to those values in the next way:
+    ```jsx
+    const value = useContext(NavbarContext);
+    console.log(value) // { user: { ...}, logout: f}
+    ```
+
+  6. We can deestructure our object:
+    ```jsx
+    const { user, logout } = useContext(NavbarContext);
+    ```
+
+    And now we have bypassed *Navlinks.jsx*!
+
+  7. You can create a custom hook for step 5 just in case you are just not grabing those values from one but multiple components like this in *Navbar.jsx*:
+    ```jsx
+    // Custom Hook
+    export const useAppContext = () => useContext(NavbarContext);
+    ```
+
+  8. And in *UserContainer.jsx*, you can modify it in the next way:
+    ```jsx
+    const{ user, logout } = useAppContext()
+    ```
 
 
 

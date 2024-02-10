@@ -3,6 +3,7 @@ import useFetch from './useFetch';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const FetchData = () => {
+  // data is an alias for saving the variable in user
   const { isLoading, isError, data: user } = useFetch(url);
 
   // order matters
